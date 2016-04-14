@@ -33,7 +33,7 @@ def showProgress(progress):
     plt.show()
 
 def main():
-    path = '/Users/asakurayasunobu/Desktop/NLPtutorial2016/'
+    path = os.getcwd()+'/'
     dirs = getDirs(path)
     progress = OrderedDict()
     for d in dirs:
