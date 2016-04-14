@@ -25,7 +25,7 @@ git pull
 git push
 
 ###みんなの進捗
-![みんなの進捗](https://github.com/tmu-nlp/NLPtutorial2016/blob/master/progress.png)
+![みんなの進捗](https://github.com/tmu-nlp/NLPtutorial2016/blob/master/figure_1.png)
 
 
 
