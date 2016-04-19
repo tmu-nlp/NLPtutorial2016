@@ -10,5 +10,5 @@ for line in my_file:
 	for ch in charArray:
 		my_dict[ch] +=1
 
-for key, value in my_dict.items():
-	print "{%s} , {%s}" % (key, value) 
+for key, value in sorted(my_dict.items()):
+	print "{} {}".format(key, value) 
