@@ -12,4 +12,9 @@ for word in words:
 f_out = open("answer.txt", "w")
 for k, v in count.iteritems():
   f_out.write("{} {}\n".format(k, v))
+<<<<<<< HEAD
 f_out.close()
+=======
+f_out.close()
+  
+>>>>>>> a136ddf4e179994244e59378aa1b998c4e41a0ec
