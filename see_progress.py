@@ -1,16 +1,20 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
-
+import seaborn
 import os
 import os.path
 import numpy as np
 import matplotlib.pyplot as plt
 from collections import OrderedDict
 
+
+
 def getDirs(path):
     dirs = list()
     for item in os.listdir(path):
         if os.path.isdir(os.path.join(path,item)):
+            if item == 'script' or item == 'data' or item == 'test':
+                continue
             dirs.append(item)
     return dirs
 
