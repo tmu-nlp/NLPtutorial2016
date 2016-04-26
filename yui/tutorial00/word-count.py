@@ -5,7 +5,7 @@ from collections import defaultdict
 #my_dict = defaultdict(lambda: 0)
 word2count = dict()
 
-for line in open("00-input.txt"):
+for line in open("wiki-en-test.word"):
     line_wo_linebreak = line.strip("\n")
     words = line_wo_linebreak.split(" ")
     for word in words:
