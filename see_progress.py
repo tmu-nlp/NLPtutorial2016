@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
-
+import seaborn
 import os
 import os.path
 import numpy as np
@@ -8,10 +8,13 @@ import matplotlib.pyplot as plt
 from collections import OrderedDict
 
 
+
 def getDirs(path):
     dirs = list()
     for item in os.listdir(path):
         if os.path.isdir(os.path.join(path,item)):
+            if item == 'script' or item == 'data' or item == 'test':
+                continue
             dirs.append(item)
     return dirs
 
@@ -19,12 +22,12 @@ def checkFileNum(path, counter):
     sep = '/'
     dirs = os.listdir(path)
     for d in dirs:
-        if os.path.isdir(path + d):
-            counter = checkFileNum(path + d + sep, counter)
+        if os.path.isdir(path + sep +  d):
+            counter = checkFileNum(path + sep + d, counter)
         else:
-            counter += 1
+            if '.py' in d:
+                counter += 1
     return counter
-    #print("{}files".format(counter))
 
 def showProgress(progress):
     X = range(len(progress.keys()))
@@ -34,7 +37,7 @@ def showProgress(progress):
     plt.show()
 
 def main():
-    path = '/Users/asakurayasunobu/Desktop/NLPtutorial2016/'
+    path = os.getcwd()+'/'
     dirs = getDirs(path)
     progress = OrderedDict()
     for d in dirs:
