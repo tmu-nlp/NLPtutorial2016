@@ -14,6 +14,6 @@ for line in my_file:
 for foo,bar in sorted(word_count.items()):
     ans += "{} {}\n".format(foo, bar)
 
-f = open("test-word-count-out.txt", "w")
+f = open(sys.argv[2], "w")
 f.write(ans)
 f.close()
