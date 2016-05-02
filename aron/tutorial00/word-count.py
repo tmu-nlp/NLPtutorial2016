@@ -11,4 +11,6 @@ for line in my_file:
 		my_dict[ch] +=1
 
 for key, value in sorted(my_dict.items()):
-	print "{} {}".format(key, value) 
+	print "{} {}".format(key, value)
+
+print "word count: %d" % len(my_dict)
