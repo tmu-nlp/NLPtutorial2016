@@ -16,7 +16,7 @@ for line in open("wiki-en-train.word"):
 
 f_out = open("model_file.txt", "w")
 words_list = []
-for ngram, count in counts.items():
+for ngram, count in sorted(counts.items()):
   words_list = ngram.split()
   words_list[-1] = ""
   context = "".join(words_list)
