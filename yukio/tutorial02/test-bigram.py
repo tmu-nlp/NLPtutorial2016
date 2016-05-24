@@ -10,7 +10,7 @@ H = 0
 probs = defaultdict(lambda: 0)
 
 for line in open("model.txt", "r"):
-    words = line.split("  ")
+    words = line.split("\t")
     probs[words[0]] = float(words[1])
 
 for line in open ("../../data/wiki-en-test.word", "r"):

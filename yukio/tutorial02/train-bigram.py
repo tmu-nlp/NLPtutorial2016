@@ -18,5 +18,5 @@ for ngram, count in sorted(counts.items()):
     del words[-1]
     context = "".join(words)
     probability = counts[ngram] / context_counts[context]
-    fout.write("{}  {}\n".format(ngram, probability))
+    fout.write("{}\t{}\n".format(ngram, probability))
 fout.close()
