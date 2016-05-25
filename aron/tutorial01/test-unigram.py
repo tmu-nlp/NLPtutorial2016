@@ -28,7 +28,7 @@ with open("../../data/wiki-en-test.word", "r") as testFile:
 			p = l_u / V
 			W += 1
 			if word in probabilities:
-				p += probabilities[word]
+				p += (l_1 * probabilities[word])
 			else:
 				UNK += 1
 			H += (- math.log(p, 2))
@@ -36,7 +36,7 @@ with open("../../data/wiki-en-test.word", "r") as testFile:
 print ("entropy", H / W)
 print ("coverage", (W - UNK ) / W)
 
-# entropy 10.461103758544457
+# entropy 10.527337238682652
 # coverage 0.895226024503591
 
 
