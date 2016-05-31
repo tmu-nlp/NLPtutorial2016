@@ -6,12 +6,11 @@ L1 = 0.95
 V = 1000000
 
 for line in open("model.txt", "r"):
-    words = line.split()
-    if len(words) == 2:
-        unigram_probabilities[words[0]] = float(words[1])
+    words = line.split("\t")
+    unigram_probabilities[words[0]] = float(words[1])
 
 for line in open ("../../data/wiki-ja-test.word", "r"):
-    line = line.strip("\t")
+    line = line.strip()
     best_edge = [None]
     best_score = [0]
     for word_end in range(1, len(line) + 1):
