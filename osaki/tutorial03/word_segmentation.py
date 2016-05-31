@@ -3,18 +3,17 @@ import sys
 import math
 from collections import defaultdict
 model=defaultdict(lambda:0)
-best_edge=list()
-best_score=list()
+best_edge={}
+best_score={}
 
 for line in open(sys.argv[1]):
     model[line.split("\t")[0]]=float(line.split("\t")[1])
 
 for line in open(sys.argv[2]):
-    best_edge.append("NULL")
-    best_score.append(0)
+    best_edge[0]=("NULL")
+    best_score[0]=(0)
     for word_end in range(1,len(line)):
-        best_score.append(10000000000)
-        best_edge.append((0,0))
+        best_score[word_end]=(10**10)
         for word_begin in range(word_end):
             word=line[word_begin:word_end]
             if model[word]!=0 or len(word)==1:
@@ -29,7 +28,7 @@ for line in open(sys.argv[2]):
         word=line[next_edge[0]:next_edge[1]]
         words.append(word)
         next_edge=best_edge[next_edge[0]]
-    words=words[::-1]
+    words.reverse()
     print(" ".join(words))
-    best_edge=list()
-    best_score=list()
+    best_edge={}
+    best_score={}
