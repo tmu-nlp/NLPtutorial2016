@@ -4,7 +4,7 @@ from collections import defaultdict
 
 word_dict = defaultdict(lambda: 0)
 total = 0
-"../../data/wiki-en-train.word"
+# "../../data/wiki-en-train.word"
 file = open(sys.argv[1], "r")
 
 if file:
