@@ -15,8 +15,8 @@ with open("model", "r") as modelFile:
 
 W   = 0 #単語数
 H   = 0 #エントロピー
-l_1 = 0.95
-l_u = 1 - l_1
+L1 = 0.95
+# l_u = 1 - L1
 V 	= 1000000
 UNK = 0
 
@@ -25,7 +25,7 @@ with open("../../data/wiki-en-test.word", "r") as testFile:
 		words = line.split()
 		words.append("</s>")
 		for word in words:
-			p = l_u / V
+			p = (1 - L1) / V
 			W += 1
 			if word in probabilities:
 				p += (l_1 * probabilities[word])
