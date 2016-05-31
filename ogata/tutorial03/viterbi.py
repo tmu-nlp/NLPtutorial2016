@@ -19,8 +19,7 @@ for line in open("../../data/wiki-ja-test.word"):
     for word_begin in range(0, word_end):
       word = line[word_begin:word_end]
       if word in uniProb.keys() or len(word) == 1:
-        prob = lambda_unk / V
-        prob += lambda_ * uniProb[word]
+        prob = lambda_ * uniProb[word] + lambda_unk / V
         my_score = best_score[word_begin] - math.log(prob, 2)
         if my_score < best_score[word_end]:
           best_score[word_end] = my_score
