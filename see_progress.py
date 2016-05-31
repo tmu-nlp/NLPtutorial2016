@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
-import seaborn
+#import seaborn
 import os
 import os.path
 import numpy as np
@@ -33,7 +33,7 @@ def showProgress(progress):
     X = range(len(progress.keys()))
     Y = progress.values()
     plt.bar(X,Y, align='center')
-    plt.xticks(X,progress.keys())
+    plt.xticks(X,progress.keys(),rotation =25)
     plt.show()
 
 def main():
