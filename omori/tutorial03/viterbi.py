@@ -20,12 +20,10 @@ for line in input_file:
     H = 0
     for word_end in range(1, len(line) + 1):
         best_score[word_end] = 10 ** 10
-        for word_begin in range(word_end - 1):
+        for word_begin in range(word_end):
             word = line[word_begin:word_end]
-            Word_count += 1
-            P = lambda_unk / V
             if word in probability.keys() or len(word) == 1:#既知語 未知語
-                P += float(probability[word]) * lambda_1
+                P = lambda_unk / V + float(probability[word]) * lambda_1
                 my_score = best_score[word_begin] + float(-math.log(P, 2))
                 if my_score < best_score[word_end]:
                     best_score[word_end] = my_score
@@ -40,4 +38,4 @@ for line in input_file:
     words.reverse()
     string = ''.join(words)
 
-    print (string)
+    print (string,end='')
