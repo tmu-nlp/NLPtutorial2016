@@ -8,10 +8,10 @@ W = 0
 H = 0
 probs = defaultdict(int)
 for line in open("model_file.txt"):
-  line_list = line.split(",")
+  line_list = line.split("\t")
   probs[line_list[0]] = line_list[1]
 
-for line in open("wiki-en-test.word"):
+for line in open("../../data/wiki-en-test.word"):
   words = line.split()
   words.insert(0, "<s>")
   words.append("</s>")

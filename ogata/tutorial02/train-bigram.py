@@ -1,10 +1,9 @@
 import sys
-import re
 from collections import defaultdict
 counts = defaultdict(int)
 context_counts = defaultdict(int) 
-words = []
-for line in open("wiki-en-train.word"):
+
+for line in open("../../data/wiki-en-train.word"):
   words = line.split()
   words.insert(0, "<s>")
   words.append("</s>")
@@ -15,11 +14,10 @@ for line in open("wiki-en-train.word"):
     context_counts[""] += 1
 
 f_out = open("model_file.txt", "w")
-words_list = []
 for ngram, count in sorted(counts.items()):
   words_list = ngram.split()
   words_list[-1] = ""
   context = "".join(words_list)
   probability = counts[ngram]/context_counts[context]
-  f_out.write("{}, {}\n".format(ngram, probability))  
-  
+  f_out.write("{}\t{}\n".format(ngram, probability))  
+f_out.close()
