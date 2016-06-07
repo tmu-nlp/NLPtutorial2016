@@ -1,4 +1,4 @@
-#perl ../../script/gradews.pl ../../data/titles-ja-test.word my_answer.word
+#perl ../../script/gradews.pl ../../data/wiki-ja-test.word my_answer.word
 import sys
 import math
 from trainUnigram import getUnigramProb
@@ -14,14 +14,12 @@ lambda_unk = 1 - lambda_
 for line in open("../../data/wiki-ja-test.word"):
   best_edge[0] = ""
   best_score[0] = 0
-  line.strip()
   for word_end in range(1, len(line) + 1):
     best_score[word_end] = 10**10
     for word_begin in range(0, word_end):
       word = line[word_begin:word_end]
       if word in uniProb.keys() or len(word) == 1:
-        prob = lambda_unk / V
-        prob += lambda_ * uniProb[word]
+        prob = lambda_ * uniProb[word] + lambda_unk / V
         my_score = best_score[word_begin] - math.log(prob, 2)
         if my_score < best_score[word_end]:
           best_score[word_end] = my_score
@@ -33,6 +31,6 @@ for line in open("../../data/wiki-ja-test.word"):
     words.append(word)
     next_edge = best_edge[next_edge[0]]
   words.reverse()
-  print("".join(words))
+  print("".join(words), end = "")
 
 
