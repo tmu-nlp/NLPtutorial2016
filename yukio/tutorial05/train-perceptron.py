@@ -27,7 +27,7 @@ if __name__ == "__main__":
     w = defaultdict(lambda: 0)
     iterations_loop = 0
 
-    while iterations_loop < 50:
+    while iterations_loop < 10:
         for line in open("../../data/titles-en-train.labeled", "r"):
             y, x = line.split("\t")
             phi = CREATE_FEATURES(x)
