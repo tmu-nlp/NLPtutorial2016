@@ -5,7 +5,7 @@ d=defaultdict(lambda:0)
 
 for line in open(sys.argv[1]):
     data=line.strip("\n").split("\t")
-    d[data[1]]=int(data[1])
+    d[data[0]]=int(data[1])
 
 for line in open(sys.argv[2]):
    score=0
