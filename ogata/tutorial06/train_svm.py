@@ -1,5 +1,4 @@
 from collections import defaultdict
-import math
 import random
 
 
@@ -10,13 +9,17 @@ def create_features(x):
         phi['UNI:'+word] += 1
     return phi
 
-
+def sign(x):
+    if x >= 0:
+        return 1
+    else:
+        return -1
 def update_weights(w, phi, y, c):
     for name, value in w.items():
         if abs(value) < c:
             w[name] = 0
         else:
-            w[name] -= math.sin(value) * c
+            w[name] -= sign(value) * c
     for name, value in phi.items():
         w[name] += value * y
 
