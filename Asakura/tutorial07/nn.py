@@ -69,7 +69,7 @@ def front_propergation(layers, inputss):
             perceptron.predict(inputss[-1])
             inputs[perceptron.get_name()] = perceptron.get_predict()
         inputss.append(inputs)
-    inputss.pop(-1)##?????????????????????????????????
+    inputss.pop(-1)
 
 def back_propergation(layers, inputss, gold):
     prev_layer = None
