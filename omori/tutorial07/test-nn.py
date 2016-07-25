@@ -3,9 +3,11 @@ import numpy as np
 from scipy import io
 
 network = io.loadmat("network")["A"]
-print (network)
+network = network[0]
+#print (network)
 with open('dict.pickle', mode='rb') as f2:
     d = pickle.load(f2)
+#print (d)
 
 def forward_nn(network,phi0):
     phi = [[],[],[]]

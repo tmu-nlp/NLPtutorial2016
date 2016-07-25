@@ -55,16 +55,20 @@ def update_weights(network,phi,delta_,lam):
 if __name__ == '__main__':
     lam = 0.01
     d = create_id_dict()
-    phi0 = np.zeros(len(d))
     network = mk_randinit(len(d))
     for line in open('../../data/titles-en-train.labeled'):
         y, x = line.split('\t')
         y = int(y)
+        phi0 = np.zeros(len(d))
         for word in x.strip('\n').split(' '):
             phi0[d[word]] += 1
+            #print(phi0)
         phi = forward_nn(network, phi0)
         delta_ = backward_nn(network, phi, y)
         update_weights(network, phi, delta_, lam)
     io.savemat("network", {"A": network})
     with open('dict.pickle', mode='wb') as f2:
         pickle.dump(d, f2)
+    print (network)
+    print (phi)
+    #print (len(d))
