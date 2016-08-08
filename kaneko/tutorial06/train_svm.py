@@ -25,6 +25,7 @@ def update_weights(w, name, c, ite, last, phi , y):
             print(w[name])
             w[name] -= np.sign(w[name])*c_size
         last[name] = ite
+    print(name)
     for name, value in phi.items():
         w[name] += value*y
 

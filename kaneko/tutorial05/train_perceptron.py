@@ -11,7 +11,7 @@ def predict_one(w, phi):
     score = 0
     for name, value in phi.items():
         if name in w:
-            score =+ value*w[name]
+            score += value*w[name]
     if score >= 0:
         return 1
     else:
@@ -30,8 +30,8 @@ if __name__ == "__main__":
             y,x = line.strip().split("\t")
             phi = create_features(x)
             yy = predict_one(w,phi)
-            if yy != y:
+            if yy != int(y):
                 update_weights(w, phi, y)
-    with open("perceptron_model.txt","w") as line:
-        for key,value in w.items():
-            line.write("{} {}\n".format(key, value))
+    with open("perceptron_model.txt","w") as f_out:
+        for key,value in sorted(w.items()):
+            f_out.write("{} {}\n".format(key, value))
